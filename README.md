@@ -40,7 +40,7 @@
 1. Arrow Functions =>
 
 - 화살 함수는 룰이 편리하고 보기 좋지만 let과 const처럼 var를 대신해서 무조건 사용해야 되는 것은 이다.
-- 일단 map은 각각의 인작값마다 함수를 호출하는 일을 한다.
+- 일단 map은 각각의 인수값마다 함수를 호출하는 일을 한다.
 - 화살 함수는 함수를 남용하는 기존에 방식에서 변형된 것을 다시 착안하고 만들어진 것이다.
 - 점점 더 보기 좋게 만들 것이 화살 함수이다.
 - function()에서 () => 변형된 것이 화살 함수이다. 굉장히 있어보인다.
@@ -48,9 +48,9 @@
 - implicit return은 같은 줄에 코드에는 자동으로 return이 된다는 의미이다.
 - ex - names.map(item => item); return이 된다.
 - ex - names.map(item => {item}) 이렇게 {}를 넣으면 implicit return가 적용이 안 된다.
-- 인자값이 하나면 ()도 필교가 없다
-- ex - names.map(item => item)의 경우 인자값이 item하나
-- ex - names.map((item, index) => item)의 경우 인자값이 두개라서 ()가 필요
+- 인수값이 하나면 ()도 필교가 없다
+- ex - names.map(item => item)의 경우 인수값이 item하나
+- ex - names.map((item, index) => item)의 경우 인수값이 두개라서 ()가 필요
 - 아무것도 없으면 ()만 사용 가능
 - ex - names.map(()) => item) 이런 식으로 ()만으로 사용 가능하다.
 - 간단하게 함수가 정리될 때 사용하기 적합니다.
@@ -162,3 +162,60 @@
 3. Renaming
 
 - 코드참조 js/destructuring/rename.js에 있다.
+
+4. Function Destructuring
+
+- 보통 함수에 argument(이것은 인자인가? 인수인가? ㅜㅜ)가 길면(많으면) 대부분 좋지 않다.
+- 그래서 이 많은 argument들을 object안에 넣어버릴 수 있다.
+- 변수들의 가독성과 각 변수의 기본값을 설정할 수 있다.
+- 그 과정에서 Object Destructuring 사용이 가능하다
+- function saveSetting({object1, object2}) 이렇게 가능
+
+5. Value Shorthands (변수명 단축)
+
+- object의 값 설정은 보통 {follow: follow, alert:alert} 이렇게 object의 값을 설정한다
+- 하지만 이 과정에서 {follow, alert} 이렇게 생략이 가능한데
+- 키와 값의 이름이 통일해야한 가능하다.
+- {isFollowing: follow} 이런게 다를 경우 Value Shorthands를 적용할 수가 없고
+- ie에서는 Value Shorthands를 할 경우 에러가 발생한다.
+
+6. Swapping and Skipping
+
+- variable swapping은 변수를 교차??해서 변경하는 것이다(꼭 1:1이 아닐 수 있다)
+- Omitting(생략) 혹은 Skipping방법도 있다.
+- 코드참조 js/destructuring/etc.js에 있다.
+
+## REST AND SPREAD
+
+1. Spread
+
+- 기본적으로 spread는 변수를 가져와서 풀어 헤치고 전개하는 것이다.
+- spread를 사용하기 위해서는 ...를 입력해야 한다.
+- const testValue = [1,2,3,4] 일때 console.log를 해보면
+- console.log(testValue)와 console.log(...testValue)는 다르게 나온다
+- array 여러개를 합치려고 할때도 유용하다.
+- (array1 + array2)를 하면 array안에 두개의 array가 있는데
+- ([...array1 + ...array2])를 하면 array안에 한개의 array로 나열이 된다.
+- object에도 Spread는 적용된다. Spread는 unpack시킨다
+- 코드참조 js/restAndSpread/spread.js에 있다.
+- ...은 데이터를 풀어내는 것이다(unpacking)
+
+2. Spread Applications
+
+- 코드참조 js/restAndSpread/spreadApplications.js에 있다.
+
+3. Rest
+
+- rest는 rest parameter(매개변수)를 의미한다.
+- parameter는 함수에게 전달하는 이나들을 이야기한다.
+- 코드참조 js/restAndSpread/rest.js에 있다.
+
+4. Rest + Spread + Destructure Magic
+
+- 코드참조 js/restAndSpread/totalReview.js에 있다.
+
+## FOR OF LOOP
+
+1. For ... of
+
+-
